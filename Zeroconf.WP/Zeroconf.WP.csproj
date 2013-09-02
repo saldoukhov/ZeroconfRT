@@ -41,6 +41,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>Bin\Release\ZeroconfRT.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -85,26 +86,58 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\Zeroconf.RT\DnsMessage.cs">
-      <Link>DnsMessage.cs</Link>
+    <Compile Include="..\Zeroconf.RT\AsyncLock.cs">
+      <Link>AsyncLock.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\Dns\Header.cs">
+      <Link>Dns\Header.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\Dns\Question.cs">
+      <Link>Dns\Question.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\Dns\Record.cs">
+      <Link>Dns\Record.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\Dns\RecordA.cs">
+      <Link>Dns\RecordA.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\Dns\RecordAAAA.cs">
+      <Link>Dns\RecordAAAA.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\Dns\RecordPTR.cs">
+      <Link>Dns\RecordPTR.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\Dns\RecordReader.cs">
+      <Link>Dns\RecordReader.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\Dns\RecordSRV.cs">
+      <Link>Dns\RecordSRV.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\Dns\RecordTXT.cs">
+      <Link>Dns\RecordTXT.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\Dns\RecordUnknown.cs">
+      <Link>Dns\RecordUnknown.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\Dns\Request.cs">
+      <Link>Dns\Request.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\Dns\Response.cs">
+      <Link>Dns\Response.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\Dns\RR.cs">
+      <Link>Dns\RR.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\Dns\Structs.cs">
+      <Link>Dns\Structs.cs</Link>
+    </Compile>
+    <Compile Include="..\Zeroconf.RT\ZeroconfRecord.cs">
+      <Link>ZeroconfRecord.cs</Link>
     </Compile>
     <Compile Include="..\Zeroconf.RT\ZeroconfResolver.cs">
       <Link>ZeroconfResolver.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.Reactive.Interfaces, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Interfaces.2.1.30214.0\lib\WP8\System.Reactive.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Linq, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Linq.2.1.30214.0\lib\WP8\System.Reactive.Linq.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

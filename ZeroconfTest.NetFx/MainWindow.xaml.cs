@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,22 +22,19 @@ namespace ZeroconfTest.NetFx
     /// </summary>
     public partial class MainWindow : Window
     {
-        private IDisposable _d;
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (_d != null)
-                _d.Dispose();
-            
-            _d = ZeroconfResolver
-                .Resolve("_p2pchat._udp.local.")
-                .Timeout(TimeSpan.FromSeconds(5), Observable.Empty<ZeroconfRecord>())
-                .Subscribe(x => Debug.WriteLine(x));
+
+            var responses = await ZeroconfResolver.ResolveAsync("_pdl-datastream._tcp.local.");
+
+            foreach (var resp in responses)
+                Console.WriteLine(resp);
         }
     }
 }
