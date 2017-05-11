@@ -1,6 +1,8 @@
-﻿using System;
-using System.Reactive.Linq;
+﻿#define DEBUG
+
+using System;
 using System.Diagnostics;
+using System.Linq;
 using Windows.UI.Xaml;
 using Zeroconf;
 
@@ -8,22 +10,23 @@ namespace ZeroconfTest.RT
 {
     public sealed partial class MainPage
     {
-        private IDisposable _d;
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void ResolveClick(object sender, RoutedEventArgs e)
+        private async void ResolveClick(object sender, RoutedEventArgs e)
         {
-            //ZeroconfResolver.Resolve("_airplay._tcp.local.").Subscribe();
-            if (_d != null)
-                _d.Dispose();
-            _d = ZeroconfResolver
-                .Resolve("_p2pchat._udp.local.")
-                .Timeout(TimeSpan.FromSeconds(5))
-                .Subscribe(x => Debug.WriteLine(x));
+            
+            var domains = await ZeroconfResolver.BrowseDomainsAsync();
+            var responses = await ZeroconfResolver.ResolveAsync(domains.Select(g => g.Key));
+
+            // var responses = await ZeroconfResolver.ResolveAsync("_http._tcp.local.");
+
+
+            foreach (var resp in responses)
+                Debug.WriteLine(resp);
         }
     }
 }

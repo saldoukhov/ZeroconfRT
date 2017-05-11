@@ -16,6 +16,11 @@ local.properties
 .settings/
 .loadpath
 
+.vs/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+
 # External tool builders
 .externalToolBuilders/
 
@@ -62,6 +67,7 @@ local.properties
 *.vspscc
 .builds
 *.dotCover
+*.nupkg
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 packages/
